@@ -73,8 +73,6 @@ do
     case "$1" in
         *:* )
         hostport=(${1//:/ })
-        HOST=$DB_HOST
-        PORT=$DB_PORT
         shift 1
         ;;
         --child)
@@ -112,6 +110,9 @@ do
         ;;
     esac
 done
+
+HOST=$DB_HOST
+PORT=$DB_PORT
 
 if [[ "$HOST" == "" || "$PORT" == "" ]]; then
     echoerr "Error: you need to provide a host and port to test."
