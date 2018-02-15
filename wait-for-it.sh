@@ -73,6 +73,8 @@ do
     case "$1" in
         *:* )
         hostport=(${1//:/ })
+        HOST=${hostport[0]}
+        PORT=${hostport[1]}
         shift 1
         ;;
         --child)
@@ -85,6 +87,24 @@ do
         ;;
         -s | --strict)
         STRICT=1
+        shift 1
+        ;;
+        -h)
+        HOST="$2"
+        if [[ $HOST == "" ]]; then break; fi
+        shift 2
+        ;;
+        --host=*)
+        HOST="${1#*=}"
+        shift 1
+        ;;
+        -p)
+        PORT="$2"
+        if [[ $PORT == "" ]]; then break; fi
+        shift 2
+        ;;
+        --port=*)
+        PORT="${1#*=}"
         shift 1
         ;;
         -t)
