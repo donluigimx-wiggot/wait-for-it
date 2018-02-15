@@ -89,24 +89,6 @@ do
         STRICT=1
         shift 1
         ;;
-        -h)
-        HOST="$2"
-        if [[ $HOST == "" ]]; then break; fi
-        shift 2
-        ;;
-        --host=*)
-        HOST="${1#*=}"
-        shift 1
-        ;;
-        -p)
-        PORT="$2"
-        if [[ $PORT == "" ]]; then break; fi
-        shift 2
-        ;;
-        --port=*)
-        PORT="${1#*=}"
-        shift 1
-        ;;
         -t)
         TIMEOUT="$2"
         if [[ $TIMEOUT == "" ]]; then break; fi
