@@ -73,8 +73,8 @@ do
     case "$1" in
         *:* )
         hostport=(${1//:/ })
-        HOST=${hostport[0]}
-        PORT=${hostport[1]}
+        HOST=$DB_HOST
+        PORT=$DB_PORT
         shift 1
         ;;
         --child)
